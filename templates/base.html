@@ -10,6 +10,14 @@
   {% block css_files %}{% endblock %}
 </head>
 <body>
+  <header id="main-navigation">
+    <h1>
+      <a class="jv" href="{% url 'home-page' %}">Home</a>
+    </h1>
+    <nav>
+      <a class="all" href="{% url 'posts-page' %}">All Posts</a>
+    </nav>
+  </header>
   {% block content %}
   {% endblock %}
 </body>

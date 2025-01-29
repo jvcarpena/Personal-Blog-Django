@@ -58,31 +58,6 @@
   flex: 1;
 }
 
-.post {
-  text-align: center;
-}
-
-.post a {
-  text-decoration: none;
-  color: black;
-}
-
-.post img {
-  display: block;
-  margin: 0 auto;
-  max-width: 50%;
-}
-
-.post__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.post__content h3 {
-  margin-bottom: 0;
-}
-
 #about {
   text-align: center;
   padding: 3rem;

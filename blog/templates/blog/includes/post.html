@@ -1,0 +1,16 @@
+{% load static %}
+
+<li>
+  <article class="post">
+    <a href="{% url 'post-detail-page' 'sakamoto-days' %}">
+      <img src="{% static 'blog/images/sakamoto.jpg' %}" alt="Sakamoto Days">
+      <div class="post__content">
+        <h3>Sakamoto Days</h3>
+        <p>
+          Sakamoto Days is an action-comedy anime about Taro Sakamoto, a legendary hitman who retires 
+          to live a peaceful life as a convenience store owner but gets pulled back into the underworld.
+        </p>
+      </div>
+    </a>
+  </article>
+</li>
