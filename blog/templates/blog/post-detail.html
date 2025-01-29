@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  This Post Title
+{% endblock %}
+
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+  <section id="summary">
+    <h2>Post title</h2>
+
+    <article>
+      <img src="{% static 'blog/images/sakamoto.jpg' %}" alt="Post Title">
+      <address>By JV</address>
+      <div>
+        Last updated on <time datetime="">January 29</time>
+      </div>
+    </article>
+  </section>
+
+  <main>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci accusamus nihil fugiat architecto placeat eos, 
+      perspiciatis earum autem neque libero ullam corrupti nulla? Perspiciatis eum quaerat illum, cumque temporibus sequi.
+    </p>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias eaque architecto veritatis amet 
+      totam maxime laboriosam! Nam itaque non praesentium. Similique optio inventore nam hic quas rem quos minus nulla!
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea ipsam alias nam quis nisi et assumenda magni, quisquam, 
+      excepturi similique exercitationem. Voluptates exercitationem repellendus sint, quae debitis recusandae facere praesentium.
+    </p>
+  </main>
+{% endblock %}

@@ -14,4 +14,4 @@ def posts(request):
 
 
 def post_detail(request, slug):
-    pass
+    return render(request, "blog/post-detail.html")
