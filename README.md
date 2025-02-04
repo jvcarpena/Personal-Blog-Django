@@ -1,4 +1,4 @@
-# Personal Blog Project
+# Django Personal Blog Project
 
 ## Overview
 This is a personal blog project built using Django, where users can browse blog posts, view details of each post, and explore various topics. The project uses Django's templating system to render pages dynamically.
