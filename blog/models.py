@@ -33,6 +33,3 @@ class Post(models.Model):
 
     # Build many to many relationship with Tag model.
     tag = models.ManyToManyField(Tag)
-
-    def __str__(self):
-        return self.title
