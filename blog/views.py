@@ -3,9 +3,7 @@ from datetime import date
 from .models import Post
 # Create your views here.
 
-all_posts = [
-    
-]
+all_posts = Post.objects.all()
 
 
 def get_date(post):
@@ -13,7 +11,7 @@ def get_date(post):
 
 
 def index(request):
-    latest_post = Post.objects.all().order_by("-date")[:3]
+    latest_post = all_posts.order_by("-date")[:3]
     return render(request, "blog/index.html", {
         "posts": latest_post
     })
@@ -29,8 +27,8 @@ def post_detail(request, slug):
     # list comprehension using next function.
     # post_to_show = next(post for post in all_posts if post['slug'] == slug)
     post_to_show = None
-    for item in all_posts:
-        if item['slug'] == slug:
+    for item in all_posts:  # Note that all_posts is an object from the Post Model.
+        if item.slug == slug:
             post_to_show = item
     return render(request, "blog/post-detail.html", {
         "post": post_to_show
