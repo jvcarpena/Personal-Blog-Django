@@ -1,26 +1,30 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView, View
 from .models import Post
 # Create your views here.
 
-def index(request):
-    latest_post = Post.objects.all().order_by("-date")[:3]
-    return render(request, "blog/index.html", {
-        "posts": latest_post
-    })
+
+class HomeView(View):
+    def get(self, request):
+        latest_post = Post.objects.all().order_by("-date")[:3]
+        return render(request, "blog/index.html", {
+            "posts": latest_post
+        })
 
 
-def posts(request):
-    all_posts = Post.objects.all().order_by("-date")
-    return render(request, "blog/all-posts.html", {
-        "posts": all_posts
-    })
+class AllPostsView(ListView):
+    model = Post
+    template_name = "blog/all-posts.html"
+    ordering = ["-date"]
+    context_object_name = "posts"
 
 
-def post_detail(request, slug):
-    # list comprehension using next function.
-    # post_to_show = next(post for post in all_posts if post['slug'] == slug)
-    post_to_show = get_object_or_404(Post, slug=slug)
-    return render(request, "blog/post-detail.html", {
-        "post": post_to_show,
-        "post_tags": post_to_show.tag.all()
-    })
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "blog/post-detail.html"
+
+    # To fetch the tag on the current detail provided by DetailView Class.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["post_tags"] = self.object.tag.all()
+        return context
