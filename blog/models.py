@@ -36,3 +36,12 @@ class Post(models.Model):
 
     # Build many to many relationship with Tag model.
     tag = models.ManyToManyField(Tag)
+
+
+class Comment(models.Model):
+    user_name = models.CharField(max_length=120)
+    user_email = models.EmailField()
+    text = models.TextField(max_length=400)
+
+    # Build one to many relationship with Post model.
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
