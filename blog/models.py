@@ -23,7 +23,10 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=250)
-    image_name = models.CharField(max_length=100)
+
+    # FILE UPLOADS
+    image = models.ImageField(upload_to="posts", null=True)
+
     date = models.DateField(auto_now=True)  # Automatic save the date whenever the database is updated.
     slug = models.SlugField(db_index=True, unique=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
