@@ -51,4 +51,7 @@ class PostDetailView(View):
             "comment_form": comment_form,  # prepopulated form if it is invalid.
             "comments": post.comments.all().order_by("-id")
         })
+
+
+# VIEW FOR READ_LATER FEATURE
     
